@@ -16,6 +16,7 @@ namespace HSNXT.DSharpPlus.VoiceNative
     {
         public override int DataAvailable => 0;
 
+        private readonly UdpClient _client;
         private ConnectionEndpoint _endpoint;
         private readonly AudioSender _audioSender;
         private readonly ulong _key;
@@ -24,6 +25,12 @@ namespace HSNXT.DSharpPlus.VoiceNative
         {
             _audioSender = audioSender;
             _key = _audioSender.GetUniqueIdentifier();
+            
+            _client = new UdpClient();
+            // TODO: Solve for .NET Standard, this is possibly default behaviour (???)
+#if HAS_NAT_TRAVERSAL
+            _client.AllowNatTraversal(true);
+#endif
         }
 
         public override void Setup(ConnectionEndpoint endpoint)
@@ -34,9 +41,10 @@ namespace HSNXT.DSharpPlus.VoiceNative
         public override Task SendAsync(byte[] data, int dataLength)
             => _audioSender.Send(_endpoint.Hostname, _endpoint.Port, _key, data, (ulong) dataLength);
 
-        public override Task<byte[]> ReceiveAsync()
+        public override async Task<byte[]> ReceiveAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.ReceiveAsync().ConfigureAwait(false);
+            return result.Buffer;
         }
 
         public override void Close()
