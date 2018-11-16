@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.VoiceNative", "HSNXT.DSharpPlus.VoiceNative\HSNXT.DSharpPlus.VoiceNative.csproj", "{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3BBBDDA-40D6-43DA-B9DF-2CE060B69868}
+	EndGlobalSection
+EndGlobal
