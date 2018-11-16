@@ -279,7 +279,7 @@ namespace DSharpPlus.VoiceNext
             dat = Rtp.Encode(rtp, dat);
             
             await SendSpeakingAsync(true).ConfigureAwait(false);
-            await UdpClient.SendAsync(dat, dat.Length).ConfigureAwait(false);
+            await UdpClient.SendNativelyAsync(dat, dat.Length).ConfigureAwait(false);
 
             Sequence++;
             Timestamp += 48 * (uint)blockSize;

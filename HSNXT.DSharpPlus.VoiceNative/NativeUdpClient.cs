@@ -37,8 +37,11 @@ namespace HSNXT.DSharpPlus.VoiceNative
         {
             _endpoint = endpoint;
         }
-
+        
         public override Task SendAsync(byte[] data, int dataLength)
+            => _client.SendAsync(data, dataLength, _endpoint.Hostname, _endpoint.Port);
+
+        public Task SendNativelyAsync(byte[] data, int dataLength)
             => _audioSender.Send(_endpoint.Hostname, _endpoint.Port, _key, data, (ulong) dataLength);
 
         public override async Task<byte[]> ReceiveAsync()
