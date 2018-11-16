@@ -3,18 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSNXT.DSharpPlus.VoiceNative", "HSNXT.DSharpPlus.VoiceNative\HSNXT.DSharpPlus.VoiceNative.csproj", "{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.VoiceNative", "HSNXT.DSharpPlus.VoiceNative\HSNXT.DSharpPlus.VoiceNative.csproj", "{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus", "..\RayBot2\DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{5510A943-8FAD-45E2-8A57-23E59C15F6A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus.CommandsNext", "..\RayBot2\DSharpPlus\DSharpPlus.CommandsNext\DSharpPlus.CommandsNext.csproj", "{6183CF57-7CC5-4792-99BF-BA16F3F9AA4B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hsnxt-nas", "hsnxt-nas\hsnxt-nas.vcxproj", "{02274CF6-DC55-433D-89B1-4E3A6C5E680E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Debug|x64.Build.0 = Debug|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Release|x64.ActiveCfg = Release|Any CPU
+		{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}.Release|x64.Build.0 = Release|Any CPU
+		{5510A943-8FAD-45E2-8A57-23E59C15F6A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5510A943-8FAD-45E2-8A57-23E59C15F6A6}.Debug|x64.Build.0 = Debug|Any CPU
+		{5510A943-8FAD-45E2-8A57-23E59C15F6A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{5510A943-8FAD-45E2-8A57-23E59C15F6A6}.Release|x64.Build.0 = Release|Any CPU
+		{6183CF57-7CC5-4792-99BF-BA16F3F9AA4B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6183CF57-7CC5-4792-99BF-BA16F3F9AA4B}.Debug|x64.Build.0 = Debug|Any CPU
+		{6183CF57-7CC5-4792-99BF-BA16F3F9AA4B}.Release|x64.ActiveCfg = Release|Any CPU
+		{6183CF57-7CC5-4792-99BF-BA16F3F9AA4B}.Release|x64.Build.0 = Release|Any CPU
+		{02274CF6-DC55-433D-89B1-4E3A6C5E680E}.Debug|x64.ActiveCfg = Debug|x64
+		{02274CF6-DC55-433D-89B1-4E3A6C5E680E}.Debug|x64.Build.0 = Debug|x64
+		{02274CF6-DC55-433D-89B1-4E3A6C5E680E}.Release|x64.ActiveCfg = Release|x64
+		{02274CF6-DC55-433D-89B1-4E3A6C5E680E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
