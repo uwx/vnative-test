@@ -13,13 +13,13 @@ namespace HSNXT.DSharpPlus.VoiceNative
         private const int MAXIMUM_PACKET_SIZE = 4096;
 
         private ulong identifierCounter = 0;
-        
+
         private readonly ulong bufferDuration;
         private readonly object locker = new object();
         private volatile UdpQueue queue;
 
         public bool Initialized => queue != null;
-        
+
         public AudioSender() : this(DEFAULT_BUFFER_DURATION)
         {
         }
@@ -28,8 +28,9 @@ namespace HSNXT.DSharpPlus.VoiceNative
         {
             this.bufferDuration = bufferDuration;
         }
-        
-        internal void Init() {
+
+        internal void Init()
+        {
             queue = new UdpQueue(bufferDuration / PACKET_INTERVAL, (long)PACKET_INTERVAL * 1_000_000L, MAXIMUM_PACKET_SIZE);
 
             var thread = new Thread(queue.Process)
@@ -39,7 +40,7 @@ namespace HSNXT.DSharpPlus.VoiceNative
             };
             thread.Start();
         }
-        
+
         public ulong GetUniqueIdentifier()
         {
             lock (locker)
@@ -48,7 +49,10 @@ namespace HSNXT.DSharpPlus.VoiceNative
             }
         }
 
-        internal async Task Send(string hostAddress, int port, ulong queueKey, byte[] data, ulong length) {
+        internal async Task Send(string hostAddress, int port, ulong queueKey, byte[] data, ulong length)
+        {
+            // this looks bad but a task completion source would probably do the same under the hood (i think)
+            // GetRemainingCapacity returns queue_buffer_capacity when queue is null
             while (queue.GetRemainingCapacity(queueKey) == 0) await Task.Delay(10);
 
             queue.QueuePacket(queueKey, hostAddress, port, data, length);
