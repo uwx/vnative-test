@@ -384,7 +384,6 @@ namespace DSharpPlus.VoiceNext
                 for (var i = 0; i < 5; i++)
                     await SendAsync(nullpcm, 20).ConfigureAwait(false);
 
-                SynchronizerTicks = 0;
                 if (PlayingWait != null)
                     PlayingWait.SetResult(true);
             }
