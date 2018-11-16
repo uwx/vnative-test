@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "HSNXT.DSharpPlus.VoiceNative": {
+      "commandName": "Project",
+      "nativeDebugging": true,
+      "environmentVariables": {
+        "foo": "bar"
+      }
+    }
+  }
+}

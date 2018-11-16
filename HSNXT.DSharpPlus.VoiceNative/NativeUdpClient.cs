@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,24 @@ namespace HSNXT.DSharpPlus.VoiceNative
     /// </summary>
     internal class NativeUdpClient : BaseUdpClient
     {
+        private readonly struct NativeEndpoint
+        {
+            public NativeEndpoint(string hostname, int port)
+            {
+                Hostname = hostname;
+                Port = port;
+                UdpHost = Dns.GetHostAddresses(hostname)[0].ToString(); //TODO async // TODO less stupid dns resolution
+            }
+
+            public string Hostname { get; }
+            public string UdpHost { get; }
+            public int Port { get; }
+        }
+
         public override int DataAvailable => 0;
 
         private readonly UdpClient _client;
-        private ConnectionEndpoint _endpoint;
+        private NativeEndpoint _endpoint;
         private readonly AudioSender _audioSender;
         private readonly ulong _key;
 
@@ -35,14 +50,14 @@ namespace HSNXT.DSharpPlus.VoiceNative
 
         public override void Setup(ConnectionEndpoint endpoint)
         {
-            _endpoint = endpoint;
+            _endpoint = new NativeEndpoint(endpoint.Hostname, endpoint.Port);
         }
         
         public override Task SendAsync(byte[] data, int dataLength)
             => _client.SendAsync(data, dataLength, _endpoint.Hostname, _endpoint.Port);
 
         public Task SendNativelyAsync(byte[] data, int dataLength)
-            => _audioSender.Send(_endpoint.Hostname, _endpoint.Port, _key, data, (ulong) dataLength);
+            => _audioSender.Send(_endpoint.UdpHost, _endpoint.Port, _key, data, (ulong) dataLength);
 
         public override async Task<byte[]> ReceiveAsync()
         {

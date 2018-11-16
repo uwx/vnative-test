@@ -58,6 +58,8 @@ namespace HSNXT.DSharpPlus.VoiceNative
                 Console.WriteLine("the queue is full, waiting");
                 await Task.Delay(10);
             }
+            
+            //Console.WriteLine($"[dbg]{hostAddress}:{port}@{queueKey}: {length}b ({queue.GetRemainingCapacity(queueKey)}/{queue.GetCapacity()})");
 
             queue.QueuePacket(queueKey, hostAddress, port, data, length);
         }

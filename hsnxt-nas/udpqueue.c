@@ -349,11 +349,6 @@ CS_EXPORT void CS_CALL Process(queue_manager_t* instance) {
 	manager_process(instance);
 }
 
-void CS_CALL waiting_iterate_callback(int64_t class_tag, int64_t size, int64_t* tag_ptr, int32_t length, void* user_data) {
-	const int wait_duration = *((int*) user_data);
-	timing_sleep(wait_duration * 1000000LL);
-}
-
 CS_EXPORT void CS_CALL hello_world()
 {
 	printf("Hello, world!\n");
