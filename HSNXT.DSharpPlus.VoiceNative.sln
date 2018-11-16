@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSNXT.DSharpPlus.VoiceNative", "HSNXT.DSharpPlus.VoiceNative\HSNXT.DSharpPlus.VoiceNative.csproj", "{20DA2401-5FF4-41AA-A7A0-178CDBAF7B0E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02274CF6-DC55-433D-89B1-4E3A6C5E680E} = {02274CF6-DC55-433D-89B1-4E3A6C5E680E}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSharpPlus", "..\RayBot2\DSharpPlus\DSharpPlus\DSharpPlus.csproj", "{5510A943-8FAD-45E2-8A57-23E59C15F6A6}"
 EndProject

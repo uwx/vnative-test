@@ -53,7 +53,11 @@ namespace HSNXT.DSharpPlus.VoiceNative
         {
             // this looks bad but a task completion source would probably do the same under the hood (i think)
             // GetRemainingCapacity returns queue_buffer_capacity when queue is null
-            while (queue.GetRemainingCapacity(queueKey) == 0) await Task.Delay(10);
+            while (queue.GetRemainingCapacity(queueKey) == 0)
+            {
+                Console.WriteLine("the queue is full, waiting");
+                await Task.Delay(10);
+            }
 
             queue.QueuePacket(queueKey, hostAddress, port, data, length);
         }

@@ -30,6 +30,8 @@ using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Exceptions;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
+using DSharpPlus.VoiceNext;
+using DSharpPlus.VoiceNext.Codec;
 using Newtonsoft.Json;
 
 namespace DSPlus.Examples
@@ -38,6 +40,7 @@ namespace DSPlus.Examples
     {
         public DiscordClient Client { get; set; }
         public CommandsNextExtension Commands { get; set; }
+        public VoiceNextExtension Voice { get; private set; }
 
         public static void Main(string[] args)
         {
@@ -122,6 +125,15 @@ namespace DSPlus.Examples
 
             // up next, let's register our commands
             Commands.RegisterCommands<ExampleInteractiveCommands>();
+            
+            // let's set up voice
+            var vcfg = new VoiceNextConfiguration
+            {
+                VoiceApplication = VoiceApplication.Music
+            };
+
+            // and let's enable it
+            Voice = Client.UseVoiceNext(vcfg);
 
             // finally, let's connect and log in
             await Client.ConnectAsync();
